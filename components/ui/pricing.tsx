@@ -80,7 +80,7 @@ export function Pricing({
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
         {plans.map((plan, index) => (
           <motion.div
             key={index}
@@ -96,10 +96,12 @@ export function Pricing({
               opacity: { duration: 0.5 },
             }}
             className={cn(
-              "rounded-2xl border-[1px] p-5 sm:p-6 bg-white/10 backdrop-blur-md text-center flex flex-col relative h-full min-w-0",
-              plan.isPopular ? "border-blue-400 border-2" : "border-white/20",
+              "rounded-2xl border-[1px] p-5 sm:p-6 bg-white/10 backdrop-blur-md text-center flex flex-col relative h-full min-w-0 lg:rounded-none lg:-ml-px",
+              plan.isPopular ? "border-blue-400 border-2 lg:z-10" : "border-white/20",
               "z-0",
               !plan.isPopular && "mt-0",
+              index === 0 && "lg:rounded-l-2xl",
+              index === plans.length - 1 && "lg:rounded-r-2xl",
             )}
           >
             {plan.isPopular && (

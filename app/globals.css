@@ -1,11 +1,11 @@
 @import 'tailwindcss';
 
 @keyframes heartbeat {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  14% { transform: translate(-50%, -50%) scale(1.08); }
-  28% { transform: translate(-50%, -50%) scale(1); }
-  42% { transform: translate(-50%, -50%) scale(1.05); }
-  70% { transform: translate(-50%, -50%) scale(1); }
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.08); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.05); }
+  70% { transform: scale(1); }
 }
 @import 'tw-animate-css';
 
