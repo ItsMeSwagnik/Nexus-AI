@@ -34,16 +34,17 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-24 sm:pt-28">
         <div className="container mx-auto px-4">
-          <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden border-none">
+          <Card className="w-full min-h-[680px] sm:min-h-[500px] bg-black/[0.96] relative overflow-hidden border-none">
+
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-            <div className="flex h-full">
+            <div className="flex h-full flex-col md:flex-row">
               {/* Left content */}
-              <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-                <h1 className="text-4xl md:text-5xl font-bold text-white bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text">
-                  N.E.X.U.S.: AI That Learns What You Do
+              <div className="flex-1 p-6 sm:p-8 relative z-10 flex flex-col justify-center">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text">
+                  N.E.X.U.S. An AI That Learns What To Do
                 </h1>
                 <p className="mt-4 text-neutral-300 max-w-lg">
                   N.E.X.U.S. observes how work gets done, discovers repetitive workflows, and turns approved intent into verified, adaptive digital action.
@@ -63,7 +64,7 @@ export default function HomePage() {
                   </Button>
                 </div>
 
-                <div className="flex items-center gap-8 text-sm text-neutral-400 mt-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 text-sm text-neutral-400 mt-6">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-400" />
                     <span>Human approval by design</span>
@@ -76,7 +77,7 @@ export default function HomePage() {
               </div>
 
               {/* Right content */}
-              <div className="flex-1 relative">
+              <div className="flex-1 relative min-h-[300px] md:min-h-0">
                 <SplineScene
                   scene="https://prod.spline.design/UbM7F-HZcyTbZ4y3/scene.splinecode"
                   className="w-full h-full"
@@ -309,6 +310,22 @@ export default function HomePage() {
           title="Choose Your N.E.X.U.S. Path"
           description="Start with workflow discovery, then expand into approved autonomous execution.\nEvery path is built around visibility, permission, and control."
           plans={[
+            {
+              name: "Free",
+              price: "0",
+              yearlyPrice: "0",
+              period: "month",
+              features: [
+                "Workflow pattern discovery",
+                "One approved automation",
+                "N.E.X.U.S. workspace access",
+                "Community support",
+              ],
+              description: "Explore how N.E.X.U.S. learns the way your team works",
+              buttonText: "Start Free",
+              href: "#contact",
+              isPopular: false,
+            },
             {
               name: "Starter",
               price: "997",
@@ -576,7 +593,7 @@ export default function HomePage() {
           {/* Bottom Section */}
           <div className="border-t border-white/10 mt-16 pt-8">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-              <p className="text-gray-400 text-center lg:text-left">© 2024 N.E.X.U.S.. All rights reserved.</p>
+              <p className="text-gray-400 text-center lg:text-left">© 2024 N.E.X.U.S. All rights reserved.</p>
 
               <div className="flex flex-wrap justify-center lg:justify-end space-x-8">
                 <a href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
