@@ -105,15 +105,10 @@ export function Pricing({
               opacity: { duration: 0.5 },
             }}
             className={cn(
-              `rounded-2xl border-[1px] p-6 bg-white/10 backdrop-blur-md text-center lg:flex lg:flex-col lg:justify-center relative`,
+              "rounded-2xl border-[1px] p-5 sm:p-6 bg-white/10 backdrop-blur-md text-center flex flex-col relative h-full min-w-0",
               plan.isPopular ? "border-blue-400 border-2" : "border-white/20",
-              "flex flex-col",
-              !plan.isPopular && "mt-5",
-              index === 0 || index === 2
-                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-[10deg]"
-                : "z-10",
-              index === 0 && "origin-right",
-              index === 2 && "origin-left",
+              "z-0",
+              !plan.isPopular && "mt-0",
             )}
           >
             {plan.isPopular && (
