@@ -85,7 +85,16 @@ export function Pricing({
           <motion.div
             key={index}
             initial={{ y: 50, opacity: 1 }}
-            whileInView={isDesktop ? { y: plan.isPopular ? -20 : 0, opacity: 1 } : {}}
+            whileInView={
+              isDesktop
+                ? {
+                    y: plan.isPopular ? -20 : 0,
+                    x: [18, 6, -6, -18][index] ?? 0,
+                    rotate: [-4, -1.5, 1.5, 4][index] ?? 0,
+                    opacity: 1,
+                  }
+                : {}
+            }
             viewport={{ once: true }}
             transition={{
               duration: 1.6,
@@ -96,12 +105,10 @@ export function Pricing({
               opacity: { duration: 0.5 },
             }}
             className={cn(
-              "rounded-2xl border-[1px] p-5 sm:p-6 bg-white/10 backdrop-blur-md text-center flex flex-col relative h-full min-w-0 lg:rounded-none lg:-ml-px",
-              plan.isPopular ? "border-blue-400 border-2 lg:z-10" : "border-white/20",
+              "rounded-2xl border-[1px] p-5 sm:p-6 bg-white/10 backdrop-blur-md text-center flex flex-col relative h-full min-w-0 lg:-ml-5 first:lg:ml-0",
+              plan.isPopular ? "border-blue-400 border-2 lg:z-20" : "border-white/20",
               "z-0",
               !plan.isPopular && "mt-0",
-              index === 0 && "lg:rounded-l-2xl",
-              index === plans.length - 1 && "lg:rounded-r-2xl",
             )}
           >
             {plan.isPopular && (
