@@ -29,7 +29,7 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen max-w-full overflow-x-clip bg-black">
       {/* Navigation Component */}
       <Navbar />
 
@@ -77,7 +77,7 @@ export default function HomePage() {
               </div>
 
               {/* Right content */}
-              <div className="flex-1 relative min-h-[300px] md:min-h-0">
+              <div id="nexus-sphere" className="flex-1 relative min-h-[340px] md:min-h-0">
                 <SplineScene
                   scene="https://prod.spline.design/UbM7F-HZcyTbZ4y3/scene.splinecode"
                   className="w-full h-full"
@@ -442,7 +442,8 @@ export default function HomePage() {
         />
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
-            <div className="relative h-32 w-full flex flex-col items-center justify-center">
+
+            <div className="relative min-h-[220px] w-full flex flex-col items-center justify-center px-2 sm:h-32 sm:min-h-0">
               <div className="w-full absolute inset-0">
                 <SparklesCore
                   id="ctasparticles"
@@ -593,7 +594,7 @@ export default function HomePage() {
           {/* Bottom Section */}
           <div className="border-t border-white/10 mt-16 pt-8">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-              <p className="text-gray-400 text-center lg:text-left">© 2024 N.E.X.U.S. All rights reserved.</p>
+              <p className="text-gray-400 text-center lg:text-left">© 2026 N.E.X.U.S. All rights reserved.</p>
 
               <div className="flex flex-wrap justify-center lg:justify-end space-x-8">
                 <a href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">

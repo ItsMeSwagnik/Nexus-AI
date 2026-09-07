@@ -80,7 +80,7 @@ export function Pricing({
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
         {plans.map((plan, index) => (
           <motion.div
             key={index}
@@ -89,9 +89,9 @@ export function Pricing({
               isDesktop
                 ? {
                     y: plan.isPopular ? -20 : 0,
+                    x: [18, 6, -6, -18][index] ?? 0,
+                    rotate: [-4, -1.5, 1.5, 4][index] ?? 0,
                     opacity: 1,
-                    x: index === 2 ? -30 : index === 0 ? 30 : 0,
-                    scale: index === 0 || index === 2 ? 0.94 : 1.0,
                   }
                 : {}
             }
@@ -105,15 +105,10 @@ export function Pricing({
               opacity: { duration: 0.5 },
             }}
             className={cn(
-              `rounded-2xl border-[1px] p-6 bg-white/10 backdrop-blur-md text-center lg:flex lg:flex-col lg:justify-center relative`,
-              plan.isPopular ? "border-blue-400 border-2" : "border-white/20",
-              "flex flex-col",
-              !plan.isPopular && "mt-5",
-              index === 0 || index === 2
-                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-[10deg]"
-                : "z-10",
-              index === 0 && "origin-right",
-              index === 2 && "origin-left",
+              "rounded-2xl border-[1px] p-5 sm:p-6 bg-white/10 backdrop-blur-md text-center flex flex-col relative h-full min-w-0 lg:-ml-5 first:lg:ml-0",
+              plan.isPopular ? "border-blue-400 border-2 lg:z-20" : "border-white/20",
+              "z-0",
+              !plan.isPopular && "mt-0",
             )}
           >
             {plan.isPopular && (
