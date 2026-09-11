@@ -27,6 +27,16 @@ export default function DownloadPage() {
     return () => window.clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    if (!selectedPlatform) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [selectedPlatform])
+
   const days = Math.floor(secondsLeft / 86400)
   const hours = Math.floor((secondsLeft % 86400) / 3600)
   const minutes = Math.floor((secondsLeft % 3600) / 60)
@@ -76,8 +86,8 @@ export default function DownloadPage() {
 
           <p className="mt-8 text-sm text-neutral-500">The desktop client is coming soon. Download links will become active when each build is released.</p>
           {selectedPlatform && (
-            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={`${selectedPlatform} download status`}>
-              <div className="w-full max-w-md rounded-3xl border border-white/15 bg-white/[0.08] p-7 text-center shadow-2xl backdrop-blur-xl">
+            <div className="fixed inset-0 z-50 flex min-h-[100dvh] items-center justify-center overflow-y-auto bg-black/70 p-4 backdrop-blur-sm sm:p-6" role="dialog" aria-modal="true" aria-label={`${selectedPlatform} download status`}>
+              <div className="my-auto w-full max-w-md rounded-3xl border border-white/15 bg-white/[0.08] p-6 text-center shadow-2xl backdrop-blur-xl sm:p-7">
                 <p className="font-mono text-xs uppercase tracking-[0.28em] text-blue-300">{selectedPlatform} desktop client</p>
                 <h2 className="mt-4 text-3xl font-bold text-transparent bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-500 bg-clip-text">Coming soon...</h2>
                 <p className="mt-3 text-sm text-neutral-300">The N.E.X.U.S. build for {selectedPlatform} is being prepared.</p>
