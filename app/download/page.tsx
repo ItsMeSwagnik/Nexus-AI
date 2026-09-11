@@ -28,7 +28,7 @@ export default function DownloadPage() {
   const seconds = secondsLeft % 60
 
   return (
-    <main className="relative h-screen overflow-hidden bg-black px-4 py-6 text-white sm:px-6 lg:px-8">
+    <main className="relative min-h-screen overflow-x-hidden overflow-y-auto bg-black px-4 py-6 text-white sm:px-6 lg:h-screen lg:overflow-hidden lg:px-8">
       <div className="mx-auto flex h-full max-w-6xl flex-col">
         <Link href="/" className="inline-flex w-fit items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-white">
           <ArrowLeft className="h-4 w-4" />
