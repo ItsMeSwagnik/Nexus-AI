@@ -14,13 +14,18 @@ const platforms = [
 
 export default function DownloadPage() {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
-  const [secondsLeft, setSecondsLeft] = useState(40 * 24 * 60 * 60)
+  const [secondsLeft, setSecondsLeft] = useState(0)
 
   useEffect(() => {
-    if (!selectedPlatform) return
-    const timer = window.setInterval(() => setSecondsLeft((seconds) => Math.max(0, seconds - 1)), 1000)
+    const releaseTime = new Date("2026-10-02T00:00:00").getTime()
+    const updateCountdown = () => {
+      setSecondsLeft(Math.max(0, Math.ceil((releaseTime - Date.now()) / 1000)))
+    }
+
+    updateCountdown()
+    const timer = window.setInterval(updateCountdown, 1000)
     return () => window.clearInterval(timer)
-  }, [selectedPlatform])
+  }, [])
 
   const days = Math.floor(secondsLeft / 86400)
   const hours = Math.floor((secondsLeft % 86400) / 3600)
