@@ -70,10 +70,7 @@ export default function DownloadPage() {
                 <p className="mt-2 min-h-12 text-sm leading-6 text-neutral-400">{label}</p>
                 <button
                   type="button"
-                  onClick={() => {
-                    setSecondsLeft(40 * 24 * 60 * 60)
-                    setSelectedPlatform(name)
-                  }}
+                  onClick={() => setSelectedPlatform(name)}
                   className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-500 px-4 py-3 text-sm font-semibold transition-all hover:bg-blue-400 active:scale-95"
                 >
                   <Download className="h-4 w-4" />
